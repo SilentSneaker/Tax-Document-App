@@ -32,6 +32,7 @@ import java.util.jar.Manifest
             if(ContextCompat.checkSelfPermission(this,
                 android.Manifest.permission.CAMERA) ==
                 PackageManager.PERMISSION_GRANTED)
+
             {
                 val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
                 startActivityForResult(intent, CAMERA_Request)

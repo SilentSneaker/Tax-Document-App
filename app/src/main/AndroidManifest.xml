@@ -4,8 +4,10 @@
     package="com.example.taxdocumentapp"
     tools:ignore="ExtraText">
     Get Permissions to take image/>
-    <uses-permission android:name="android.permission.CAMERA"/>
-    
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18"/>
 
 
     <application

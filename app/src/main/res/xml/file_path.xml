@@ -3,5 +3,6 @@
     
     <external-path
         name="Tax Images"
-        path="Android/data/com.example.taxdocumentapp/files/Pictures"/>
+        path="Android/data/com.example.taxdocumentapp/files/Pictures"
+        />
 </paths>

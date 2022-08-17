@@ -4,12 +4,14 @@
     package="com.example.taxdocumentapp"
     tools:ignore="ExtraText">
 
-    <uses-permission android:name="android.permission.CAMERA"
-        android:required="true"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="18" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -20,6 +22,9 @@
         android:theme="@style/Theme.TaxDocumentApp"
         tools:targetApi="31">
         <activity
+            android:name=".Gallery"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -28,17 +33,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
+
         <provider
-            android:authorities="com.example.taxdocumentapp"
             android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.taxdocumentapp"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_path"/>
+                android:resource="@xml/file_path" />
         </provider>
-        
     </application>
 
 </manifest>

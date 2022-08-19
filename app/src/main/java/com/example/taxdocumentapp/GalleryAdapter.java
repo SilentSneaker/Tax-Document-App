@@ -13,13 +13,13 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
-public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ViewHolder> {
+public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHolder> {
 
     private Context context;
     private List<String> images;
     protected PhotoListener photoListener;
 
-    public ImageAdapter(Context context, List<String> images, PhotoListener photoListener) {
+    public GalleryAdapter(Context context, List<String> images, PhotoListener photoListener) {
         this.context = context;
         this.images = images;
         this.photoListener = photoListener;

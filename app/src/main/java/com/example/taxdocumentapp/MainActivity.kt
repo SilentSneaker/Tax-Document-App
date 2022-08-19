@@ -1,7 +1,8 @@
 package com.example.taxdocumentapp
 
 import android.content.Intent
-import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import android.media.Image
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,10 +11,8 @@ import android.provider.MediaStore
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
+import androidx.activity.result.ActivityResult
 import androidx.core.content.FileProvider
-import androidx.recyclerview.widget.GridLayoutManager
 
 import androidx.recyclerview.widget.RecyclerView
 import java.io.File
@@ -25,7 +24,6 @@ import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
-
 
 
 
@@ -43,16 +41,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
     }
 
 
 
 
 
-
     // creating unique image name
-    private fun getImageFile(): File {
+    private fun setImageFile(): File {
         var timeStamp: String = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
         val imageName: String = "jpg_" +timeStamp+"_"
         var storageDir: File? = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
@@ -62,13 +58,13 @@ class MainActivity : AppCompatActivity() {
         return imageFile
     }
 
-    fun snapPicture(view: View) {
+   fun snapPicture(view: View) {
         val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
 
             var imageFile: File? = null
 
             try {
-                imageFile = getImageFile()
+                imageFile = setImageFile()
             }
             catch (e: IOException)
             {
@@ -82,15 +78,16 @@ class MainActivity : AppCompatActivity() {
                     "com.example.taxdocumentapp",imageFile)
                 cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT,imageUri)
                 startActivityForResult(cameraIntent, CameraPermissionCode)
-
             }
             else
             {
                 Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
             }
-
     }
 
-
+    fun goToGallery(view: View) {
+        var intent = Intent(this, Gallery::class.java)
+        startActivity(intent)
+    }
 
 }

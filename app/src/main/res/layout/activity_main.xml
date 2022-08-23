@@ -20,16 +20,58 @@
      app:layout_constraintEnd_toEndOf="parent"
      app:srcCompat="@android:drawable/ic_menu_camera" />
 
- <ImageButton
+ <TextView
      android:id="@+id/GotoGalleryButton"
-     android:layout_width="108dp"
-     android:layout_height="108dp"
+     android:layout_width="173dp"
+     android:layout_height="35dp"
+     android:clickable="true"
+     android:elegantTextHeight="true"
+     android:onClick="goToGallery"
+     android:text="Gallery"
+     android:textAlignment="center"
+     android:textSize="22dp"
      app:layout_constraintBottom_toBottomOf="parent"
      app:layout_constraintEnd_toEndOf="parent"
-     app:layout_constraintStart_toStartOf="parent"
-     app:layout_constraintTop_toTopOf="parent"
-     app:srcCompat="@android:drawable/ic_menu_gallery"
-     android:onClick="goToGallery"/>
 
+     app:layout_constraintStart_toStartOf="parent"
+     app:layout_constraintTop_toBottomOf="@+id/TotalsScreen"
+     app:layout_constraintVertical_bias="0.150" />
+
+ <TextView
+     android:id="@+id/ContactUs"
+     android:layout_width="173dp"
+     android:layout_height="35dp"
+     android:clickable="true"
+     android:elegantTextHeight="true"
+     android:onClick="goToContactUs"
+     android:text="Contact Us"
+     android:textAlignment="center"
+     android:textSize="22dp"
+     app:layout_constraintBottom_toBottomOf="parent"
+     app:layout_constraintEnd_toEndOf="parent"
+
+
+     app:layout_constraintStart_toStartOf="parent"
+     app:layout_constraintTop_toBottomOf="@+id/GotoGalleryButton"
+     app:layout_constraintVertical_bias="0.150" />
+
+ <TextView
+     android:id="@+id/TotalsScreen"
+     android:layout_width="173dp"
+     android:layout_height="35dp"
+     android:clickable="true"
+     android:elegantTextHeight="true"
+     android:onClick="goToTotalsScreen"
+     android:text="Totals"
+     android:textAlignment="center"
+     android:textSize="22dp"
+     app:layout_constraintBottom_toBottomOf="parent"
+     app:layout_constraintEnd_toEndOf="parent"
+
+
+     app:layout_constraintStart_toStartOf="parent"
+
+     app:layout_constraintTop_toTopOf="parent"
+     app:layout_constraintVertical_bias="0.228" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

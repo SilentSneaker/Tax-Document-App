@@ -29,17 +29,21 @@ class MainActivity : AppCompatActivity() {
 
     // creating file name
     var CurrentImageFile: String? = null
+    var imgfil: File? = null
 
     lateinit var tags: List<String>
     //object to store values
-    companion object{
-        private const val CameraPermissionCode = 1
-    }
+
+        private val cameraPermissionCode = 1
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
+
 
     }
 
@@ -77,7 +81,8 @@ class MainActivity : AppCompatActivity() {
                 var imageUri = FileProvider.getUriForFile(this,
                     "com.example.taxdocumentapp",imageFile)
                 cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT,imageUri)
-                startActivityForResult(cameraIntent, CameraPermissionCode)
+                startActivityForResult(cameraIntent, cameraPermissionCode)
+                imgfil = imageFile
             }
             else
             {
@@ -85,9 +90,32 @@ class MainActivity : AppCompatActivity() {
             }
     }
 
+    @Override
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == cameraPermissionCode && resultCode == RESULT_OK){
+
+            var intent = Intent(this, SetDocInfo::class.java)
+            startActivity(intent)
+        }
+    }
+
+
+
     fun goToGallery(view: View) {
         var intent = Intent(this, Gallery::class.java)
         startActivity(intent)
+    }
+
+    fun goToContactUs(view: View) {
+        var int = Intent(this, contactUsScreen::class.java)
+        startActivity(int)
+
+    }
+    fun goToTotalsScreen(view: View) {
+
+
     }
 
 }

@@ -7,7 +7,7 @@ public class Document(_total: String , _date: String, _tag: String, imageLoc: St
     var tag = _tag
     var imageLocation = imageLoc
 
-    lateinit var Tags: List<String>
+    var Tags: List<String> = tag.split(", ").toList()
 
 
 }

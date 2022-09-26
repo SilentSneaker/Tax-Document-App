@@ -1,26 +1,20 @@
 package com.example.taxdocumentapp
 
 import android.content.Intent
-import android.graphics.Bitmap
-import android.media.Image
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
 import android.view.View
-import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.result.ActivityResult
 import androidx.core.content.FileProvider
+import java.io.*
+import java.lang.Exception
 
-import androidx.recyclerview.widget.RecyclerView
-import java.io.File
-import java.io.IOException
+import java.net.URL
 import java.text.SimpleDateFormat
 import java.util.*
-
-
 
 
 class MainActivity : AppCompatActivity() {
@@ -29,7 +23,12 @@ class MainActivity : AppCompatActivity() {
 
     // creating file name
     var CurrentImageFile: String? = null
-    var imgfil: File? = null
+    companion object{
+        lateinit var imFile: URL
+        var read = false
+
+    }
+
 
     lateinit var tags: List<String>
     //object to store values
@@ -42,11 +41,48 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        if (!read) {
 
 
+            readSavedDocument()
+            read = true
+        }
 
     }
 
+
+    fun readSavedDocument(){
+
+        var fileInputStream: FileInputStream? = null
+        try {
+            fileInputStream = openFileInput("SavedDocuments.txt")
+
+        var inputStreamReader = InputStreamReader(fileInputStream)
+        val bufferedReader = BufferedReader(inputStreamReader)
+        val stringBuilder = StringBuilder()
+        var text: String? = null
+        while (run {
+                text = bufferedReader.readLine()
+                text
+            } != null){
+            stringBuilder.append(text)
+        }
+        var m = stringBuilder.split("╠╬").toList()
+        var documents = m[0].split("╠").toList()
+        for (file in documents){
+            var doc = file.split("*").toList()
+
+                var newDocument = Document(doc[0], doc[1],doc[2], doc[3])
+            Gallery.docList.add(newDocument)
+
+        }
+       SetDocInfo.list = m[1].split("╬").toMutableList()
+        }
+        catch (e: Exception){
+            e.printStackTrace()
+        }
+
+    }
 
 
 
@@ -74,15 +110,13 @@ class MainActivity : AppCompatActivity() {
             {
                 e.printStackTrace()
             }
-
-
             if (imageFile != null)
             {
                 var imageUri = FileProvider.getUriForFile(this,
                     "com.example.taxdocumentapp",imageFile)
                 cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT,imageUri)
                 startActivityForResult(cameraIntent, cameraPermissionCode)
-                imgfil = imageFile
+                imFile = imageFile.toURL()
             }
             else
             {
@@ -114,8 +148,8 @@ class MainActivity : AppCompatActivity() {
 
     }
     fun goToTotalsScreen(view: View) {
-
-
+        var intent = Intent(this, TotalsScreen::class.java)
+        startActivity(intent)
     }
 
 }

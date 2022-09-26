@@ -8,10 +8,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.DatePicker
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import java.io.File
@@ -89,7 +86,11 @@ class EditDocumentInfo : AppCompatActivity(), DateSelected {
             })
             builder.show()
         })
-
+        var button = findViewById<Button>(R.id.EditDocInfoAddTagButton)
+        button.setOnClickListener() {
+            var intent = Intent(this, CreateTag::class.java)
+            startActivity(intent)
+        }
 
     }
 

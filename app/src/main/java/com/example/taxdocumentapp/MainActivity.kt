@@ -86,7 +86,6 @@ class MainActivity : AppCompatActivity() {
 
 
 
-
     // creating unique image name
     private fun setImageFile(): File {
         var timeStamp: String = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())

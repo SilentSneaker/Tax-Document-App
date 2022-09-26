@@ -10,76 +10,23 @@
 
  <ImageButton
      android:id="@+id/TakePict"
-
      android:layout_width="78dp"
      android:layout_height="87dp"
-     android:layout_marginEnd="48dp"
-     android:layout_marginBottom="48dp"
-     android:onClick="snapPicture"
+     android:layout_marginEnd="32dp"
+     android:layout_marginBottom="40dp"
+     android:onClick="SnapPicture"
      app:layout_constraintBottom_toBottomOf="parent"
      app:layout_constraintEnd_toEndOf="parent"
      app:srcCompat="@android:drawable/ic_menu_camera" />
 
- <Button
-     android:id="@+id/GotoGalleryButton"
-     android:layout_width="200dp"
-     android:layout_height="50dp"
-     android:clickable="true"
-     android:elegantTextHeight="true"
-     android:onClick="goToGallery"
-     android:text="Documents"
-     android:textAlignment="center"
-     android:textSize="19dp"
+ <ImageView
+     android:id="@+id/PicView"
+     android:layout_width="224dp"
+     android:layout_height="246dp"
+     android:onClick="thumbNail"
      app:layout_constraintBottom_toBottomOf="parent"
      app:layout_constraintEnd_toEndOf="parent"
-
      app:layout_constraintStart_toStartOf="parent"
-     app:layout_constraintTop_toBottomOf="@+id/TotalsScreen"
-     app:layout_constraintVertical_bias="0.150" />
-
- <Button
-     android:id="@+id/ContactUs"
-     android:layout_width="200dp"
-     android:layout_height="50dp"
-     android:clickable="true"
-     android:elegantTextHeight="true"
-     android:onClick="goToContactUs"
-     android:text="Contact Us"
-     android:textAlignment="center"
-     android:textSize="19dp"
-     app:layout_constraintBottom_toBottomOf="parent"
-     app:layout_constraintEnd_toEndOf="parent"
-
-
-     app:layout_constraintHorizontal_bias="0.501"
-     app:layout_constraintStart_toStartOf="parent"
-     app:layout_constraintTop_toBottomOf="@+id/GotoGalleryButton"
-     app:layout_constraintVertical_bias="0.169" />
-
- <Button
-     android:id="@+id/TotalsScreen"
-     android:layout_width="200dp"
-     android:layout_height="50dp"
-     android:clickable="true"
-     android:elegantTextHeight="true"
-     android:onClick="goToTotalsScreen"
-     android:text="Income"
-     android:textAlignment="center"
-     android:textSize="19dp"
-     app:layout_constraintBottom_toBottomOf="parent"
-     app:layout_constraintEnd_toEndOf="parent"
-
-
-     app:layout_constraintStart_toStartOf="parent"
-
-     app:layout_constraintTop_toTopOf="parent"
-     app:layout_constraintVertical_bias="0.228" />
-
- <TextView
-     android:layout_width="match_parent"
-     android:layout_height="100dp"
-     app:layout_constraintStart_toStartOf="parent"
-     app:layout_constraintTop_toTopOf="parent"
-     android:id="@+id/PrintSaved"/>
+     app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

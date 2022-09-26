@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <paths xmlns:android="http://schemas.android.com/apk/res/android">
-    
+
     <external-path
-        name="Tax Images"
-        path="Android/data/com.example.taxdocumentapp/files/Pictures"
-        />
+        name="TaxImages"
+        path="Android/data/com.example.taxdocumentapp/files/Pictures"/>
 </paths>

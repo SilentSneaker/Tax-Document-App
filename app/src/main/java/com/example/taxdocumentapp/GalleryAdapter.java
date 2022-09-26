@@ -33,6 +33,7 @@ public class GalleryAdapter extends ArrayAdapter<Document> {
         ImageView img;
     }
 
+
     public GalleryAdapter(Context context, int resource, ArrayList<Document> obj){
         super(context, resource, obj);
         mContext = context;
@@ -44,10 +45,10 @@ public class GalleryAdapter extends ArrayAdapter<Document> {
 
         setupImageLoader();
 
-        String ndate = getItem(position).getDate();
-        String imgloc = getItem(position).getImageLocation();
+        String nDate = getItem(position).getDate();
+        String imgLocation = getItem(position).getImageLocation();
         String Tag = getItem(position).getTag();
-        String ntotal = getItem(position).getTotal();
+        String nTotal = getItem(position).getTotal();
 
 
 
@@ -70,7 +71,6 @@ public class GalleryAdapter extends ArrayAdapter<Document> {
         else {
             holder = (ViewHolder) convertView.getTag();
             result = convertView;
-
         }
 
             ImageLoader imageLoader = ImageLoader.getInstance();
@@ -82,12 +82,11 @@ public class GalleryAdapter extends ArrayAdapter<Document> {
                     .showImageOnFail(defaultimage).showImageOnLoading(defaultimage).build();
 
 
+            imageLoader.displayImage(imgLocation, holder.img, options);
 
-            imageLoader.displayImage(imgloc, holder.img, options);
-
-            holder.total.setText(ntotal);
+            holder.total.setText(nTotal);
             holder.tags.setText(Tag);
-            holder.date.setText(ndate);
+            holder.date.setText(nDate);
 
 
         return convertView;

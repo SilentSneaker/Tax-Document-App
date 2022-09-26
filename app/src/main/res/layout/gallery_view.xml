@@ -10,20 +10,47 @@
     android:background="@color/white"
     android:orientation="vertical">
 
-    <EditText
+
+    <TextView
+        android:id="@+id/GalleryScreenDropDown"
+        android:layout_width="297dp"
+        android:layout_height="50dp"
+        android:background="@android:drawable/editbox_background"
+        android:drawableEnd="@android:drawable/arrow_down_float"
+        android:drawablePadding="15dp"
+        android:textSize="22dp"
+        android:hint="Search By Tag(s)"
+        android:padding="10dp" />
+
+
+    <TextView
+        android:id="@+id/GalleryScreenDropDownSortBy"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:id="@+id/SearchFilter"
-        />
+        android:layout_below="@id/GalleryScreenDropDown"
+        android:textSize="24dp"
+        android:background="@android:drawable/editbox_background"
+        android:drawableEnd="@android:drawable/arrow_down_float"
+        android:drawablePadding="15dp"
+        android:hint="Sort By"
+        android:padding="10dp" />
+
     <ListView
+        android:id="@+id/GalleryScreenList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/SearchFilter"
-        android:id="@+id/theList"/>
+        android:layout_below="@+id/GalleryScreenDropDownSortBy" />
 
+    <Button
+        android:layout_width="114dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
 
-
-
+        android:layout_toEndOf="@+id/GalleryScreenDropDown"
+        android:onClick="ToMain"
+        android:text="Main Menu"
+        android:textSize="12dp" />
 
 
 </RelativeLayout>
